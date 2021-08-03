@@ -71,7 +71,6 @@ void APawnTank::Rotate()
 {
 	AddActorLocalRotation(RotationDirection, true);
 
-	
 }
 
 void APawnTank::HandleDestruction()
@@ -79,4 +78,5 @@ void APawnTank::HandleDestruction()
 	Super::HandleDestruction();
 	//TODO -- Hide player
 }
+
 
