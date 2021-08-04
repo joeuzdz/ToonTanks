@@ -38,6 +38,10 @@ void APawnTank::Tick(float DeltaTime)
 
 		RotateTurret(HitLocation);
 	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No PlayerControllerRef found attached to %s"), *GetOwner()->GetName());
+	}
 }
 
 // Called to bind functionality to input
@@ -77,6 +81,14 @@ void APawnTank::HandleDestruction()
 {
 	Super::HandleDestruction();
 	//TODO -- Hide player
+	bIsPlayerAlive = false;
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+}
+
+bool APawnTank::GetIsPlayerAlive()
+{
+	return bIsPlayerAlive;
 }
 
 

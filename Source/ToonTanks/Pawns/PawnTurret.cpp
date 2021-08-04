@@ -21,7 +21,7 @@ void APawnTurret::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!PlayerPawn || ReturnDistanceToPlayer() > FireRange)
+	if (!PlayerPawn || ReturnDistanceToPlayer() > FireRange || !PlayerPawn->GetIsPlayerAlive())
 	{
 		return;
 	}
@@ -36,6 +36,11 @@ void APawnTurret::CheckFireCondition()
 	if (!PlayerPawn)
 	{
 		UE_LOG(LogTemp, Error, TEXT("No player pawn found in CheckFireCondition"));
+		return;
+	}
+
+	if (!PlayerPawn->GetIsPlayerAlive())
+	{
 		return;
 	}
 
@@ -60,7 +65,7 @@ float APawnTurret::ReturnDistanceToPlayer()
 void APawnTurret::HandleDestruction()
 {
 	Super::HandleDestruction();
-	//Destroy();
+	Destroy();
 }
 
 
