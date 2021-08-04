@@ -3,7 +3,6 @@
 
 #include "PawnBase.h"
 #include "Components/CapsuleComponent.h"
-#include "GameFramework/PlayerController.h"
 #include "ToonTanks/Actors/ProjectileBase.h"
 #include "ToonTanks/Components/HealthComponent.h"
 #include "Kismet/GameplayStatics.h"
@@ -57,7 +56,6 @@ void APawnBase::HandleDestruction()
 {
 	UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticle, GetActorLocation());
 	UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
-	GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(DeathShake);
 }
 
 
