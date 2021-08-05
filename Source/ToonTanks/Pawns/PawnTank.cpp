@@ -4,6 +4,7 @@
 #include "PawnTank.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 APawnTank::APawnTank()
 {
@@ -84,6 +85,8 @@ void APawnTank::HandleDestruction()
 	bIsPlayerAlive = false;
 	SetActorHiddenInGame(true);
 	SetActorTickEnabled(false);
+
+	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 }
 
 bool APawnTank::GetIsPlayerAlive()
