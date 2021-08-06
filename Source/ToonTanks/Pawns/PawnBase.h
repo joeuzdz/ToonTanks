@@ -16,13 +16,18 @@ class TOONTANKS_API APawnBase : public APawn
 	GENERATED_BODY()
 
 private:
+
 	//Components
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCapsuleComponent* CapsuleComp = nullptr;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh = nullptr;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* TurretMesh = nullptr;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint = nullptr;
 	
@@ -30,6 +35,7 @@ private:
 	UHealthComponent* HealthComponent = nullptr;
 	
 	// Variables
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Projectile Type", meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AProjectileBase> ProjectileClass = nullptr;
 
@@ -39,9 +45,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Effects")
 	USoundBase* DeathSound = nullptr;
 
+
 public:
 
-	// Sets default values for this pawn's properties
 	APawnBase();
 
 	virtual void HandleDestruction();
@@ -51,8 +57,6 @@ protected:
 	void RotateTurret(FVector LookAtTarget);
 
 	void Fire();
-
-	
 
 };
 

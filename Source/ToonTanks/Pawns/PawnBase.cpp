@@ -48,6 +48,7 @@ void APawnBase::Fire()
 
 	FVector SpawnLocation = ProjectileSpawnPoint->GetComponentLocation();
 	FRotator SpawnRotation = ProjectileSpawnPoint->GetComponentRotation();
+	SpawnRotation.Yaw += FMath::RandRange(-2, 2); //add slight inaccuracy to shot
 	AProjectileBase* TempProjectile = GetWorld()->SpawnActor<AProjectileBase>(ProjectileClass, SpawnLocation, SpawnRotation);
 	TempProjectile->SetOwner(this);
 }

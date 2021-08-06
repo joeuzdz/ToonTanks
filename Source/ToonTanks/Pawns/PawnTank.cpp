@@ -86,6 +86,7 @@ void APawnTank::HandleDestruction()
 	SetActorHiddenInGame(true);
 	SetActorTickEnabled(false);
 
+	//restart level
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 }
 
